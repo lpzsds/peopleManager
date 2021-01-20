@@ -1,0 +1,185 @@
+<div class="container">
+    <div class="row clearfix">
+		<div class="col-md-12 column">
+			<table class="table table-bordered table-hover" id="tab_logic">
+				<thead>
+					<tr >
+						<th class="text-center">
+							id
+						</th>
+                         <th class="text-center">
+							Número de identificación
+						</th>
+						<th class="text-center">
+							Primer Nombre
+						</th>
+						<th class="text-center">
+							Segundo Nombre
+						</th>
+						<th class="text-center">
+							Primer Apellido
+						</th>
+                        <th class="text-center">
+							Segundo Apellido
+						</th>
+                       
+                        {{!-- <th class="text-center">
+							Imagen
+						</th> --}}
+                        <th class="text-center">
+							Pasatiempos
+						</th>
+						<th>
+
+							<i class="fas fa-trash-alt" style="color: black"></i>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+	{{#each users.rows}}
+					<tr id='addr0'>
+						<form action="/links/edit/{{id}}" id="form{{id}}">
+						<td><input type="number" value="{{id}}" disabled name="id" style="width: 5em"></td>
+
+						<td>
+						<input type="text" name='numidentif' value="{{num_indentif}}"  placeholder='Número de identificación' class="form-control"/>
+						</td>
+						
+						<td>
+						<input type="text" name='nombre1' value="{{nombre1}}"  class="form-control"/></input>
+						</td>
+
+						<td>
+						<input type="text" name='nombre2' value="{{nombre2}}" placeholder='Segundo Nombre' class="form-control"/>
+						</td>
+
+                        <td>
+						<input type="text" name='apellido1' value='{{apellido1}}' placeholder='Primer Apellido' class="form-control"/>
+						</td>
+
+                        <td>
+						<input type="text" name='apellido2' value='{{apellido2}}' placeholder='apellido2' class="form-control"/>
+						</td>
+
+						{{!-- <td>
+						<input type="text" name='profilePic' value='{{profilePic}}' placeholder='Imagen' class="form-control"/>
+						</td> --}}
+
+                        <td>
+						<input type="text" name='pasatiempo' value="{{pasatiempo}}"placeholder='Pasatiempos' class="form-control"/>
+						</td>
+
+						<td>
+							<a href="/links/delete/{{id}}" id="trash">
+								<i class="fas fa-trash-alt" style="color: black"></i>
+							</a>
+							<a href="" id="submit{{id}}">
+								<i class="fas fa-check-circle" style="color: black;"></i>
+							</a>
+						</td>
+
+					<script>
+
+						
+						//var id = ({{id}})					
+						window['$submit' + {{id}}]  = document.querySelector('#submit' + {{id}})
+						
+						
+						$("input").click(function(){
+						//cuando presionen cualquier campo =>
+						hideCheck();
+						//showCheck({{id}});
+						})
+
+						function hideChecks()
+						{
+							$submit{{id}}.style.display = 'none'
+						}
+
+						function showCheck()
+						{
+							$submit{{id}}.style.display = 'inline-block'
+						}
+
+						var file;
+						function renderImage(formData){
+						file = formData.get('profilePic')
+						const image = URL.createObjectURL(file)
+						$display.setAttribute('src', image)
+						}
+						
+					</script>
+
+
+					</tr>
+                    <tr id='addr1'></tr>
+					</form>
+
+				{{else}}
+
+				<div class="col-nd-4 mx-auto">
+					<div class="card card-body text-center">
+						<p>No hemos encontrado a ningún contacto ._.</p>
+					</div>
+				</div>
+				{{/each}}
+
+
+
+
+				 {{!-- Nuevo usuario --------------------------------------------------------------------}}
+				 <form action="/links/add" method="POST">
+				 <tr id='addr0'>
+
+						<td>
+						#
+						</td>
+
+						<td>
+						<input type="number" placeholder="Nuevo" name="numidentif"  placeholder='Número de identificación' class="form-control"/>
+						</td>
+						
+						<td>
+						<input type="input" name='nombre1' placeholder="Nuevo"  class="form-control"/></input>
+						</td>
+
+						<td>
+						<input type="input" name='nombre2'  placeholder="Nuevo" class="form-control"/>
+						</td>
+
+                        <td>
+						<input type="input" name='apellido1'  placeholder="Nuevo" class="form-control"/>
+						</td>
+
+                        <td>
+						<input type="input" name='apellido2'  placeholder="Nuevo" class="form-control"/>
+						</td>
+
+						{{!-- <td>
+						<input type="input" name='profilePic'  placeholder="Nuevo" class="form-control"/>
+						</td> --}}
+
+                        <td>
+						<input type="input" name='pasatiempos' placeholder="Nuevo" class="form-control" />
+						</td>
+
+						<td>
+								<button style="border:none; background: none;">
+							<i class="fas fa-plus-circle" style="color: black;  " ></i> 
+								</button>
+						</form>
+
+						</td>
+					</tr>
+                    <tr id='addr1'></tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<script> 
+$("input").click(function(){
+	console.log("Me están clickeando")
+})
+</script>

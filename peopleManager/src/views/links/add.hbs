@@ -1,0 +1,98 @@
+<div class="container p-4">
+  <div class="text-center">
+
+        .<h1>Nuevo Usuario</h1>
+  </div>
+    
+</div>
+
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card">
+                <div class="card-body">
+
+
+                     <form id='form' action="/links/add" method="POST">
+
+
+                     <div class="form-group">
+                        <div class="form-group mt-1">
+                                <input type="number" name="numidentif" class="form-control" placeholder="Número de identificación" autofocus>
+                        </div>
+                     </div>
+                        <div class="form-group mt-3">
+                                <input  name="nombre1" id="nombre1" type="text" class="form-control" placeholder="Primer Nombre">
+                        </div>
+                        <div class="form-group mt-3">
+                            <input name="nombre2" type="text" class="form-control" placeholder="Segundo Nombre">
+                        </div>
+                        <div class="form-group mt-3">
+                            <input name="apellido1" type="text" class="form-control" placeholder="Primer Apellido">
+                        </div>
+                        <div class="form-group mt-3">
+                            <input name="apellido2" type="text" class="form-control" placeholder="Segundo Apellido">
+                        </div>
+                        <div class="mt-3">
+                            <label for="profilePic">¡Carga una Foto de perfil!</label>
+                        </div>
+                        <div class="mt-3 form-control-file">
+                            <input name="profilePic" type="file" id="profilePic">
+
+                        <div class="p-4" id="centrador">
+
+                        <img id="display" style="width: 200px;">
+                        </div>
+                        </div>
+                        <div class="mt-3">
+                        <textarea name="pasatiempos" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="¡Escribe tus pasatiempos!"></textarea>
+                        </div>
+                        <div class="form-group mt-3">
+                            <button class="btn btn-dark btn-block flex-row-reverse">Enviar</button>
+                        </div>
+
+                        <p id=""></p>
+
+                        
+                        </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+ /*   const $form = document.querySelector('#form')
+
+    const $display = document.querySelector('#display')
+    const $file = document.querySelector('#profilePic')
+
+    var file;
+    function renderImage(formData){
+    file = formData.get('profilePic')
+    const image = URL.createObjectURL(file)
+    $display.setAttribute('src', image)
+    }
+
+    var  formData = new  FormData()
+    $file.addEventListener('change', () =>{
+        formData = new  FormData($form)
+        renderImage(formData); 
+    }) 
+
+    $form.addEventListener('submit', (event) =>{
+    event.preventDefault()
+    console.log(file)
+    fetch('/links/add',{
+        method: 'POST',
+        imageForm: file,  
+    })
+
+    })*/
+</script>
+
+        
+          
+                
